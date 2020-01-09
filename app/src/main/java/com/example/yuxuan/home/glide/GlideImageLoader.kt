@@ -1,4 +1,4 @@
-package com.example.yuxuan.home
+package com.example.yuxuan.home.glide
 
 import android.content.Context
 import android.widget.ImageView
@@ -9,5 +9,4 @@ class GlideImageLoader:ImageLoader() {
     override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
         Glide.with(context!!).load(path).into(imageView!!)
     }
-
 }

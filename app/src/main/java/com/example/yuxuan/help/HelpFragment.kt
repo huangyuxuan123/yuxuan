@@ -1,20 +1,22 @@
 package com.example.yuxuan.help
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import com.example.yuxuan.R
-import com.example.yuxuan.base.BaseFragment
+import com.example.yuxuan.databinding.HelpFragmentBinding
+import com.example.yuxuan.home.base.BaseFragment
 
-class HelpFragment : BaseFragment(){
-    override fun initView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View{
-        var view:View = inflater.inflate(R.layout.help_fragment,container,false)
-        return view
+class HelpFragment : BaseFragment<HelpFragmentBinding,HelpFragmentVM>(){
+    //=========================  ================================
+
+    override fun getLayoutId(): Int = R.layout.help_fragment
+
+    //=========================  =================================
+
+    override fun getViewModelCls(): Class<HelpFragmentVM> {
+        return HelpFragmentVM::class.java
     }
+
+    override fun setViewModel() {
+        mViewDataBinding.vm= mViewModel
+    }
+
 }

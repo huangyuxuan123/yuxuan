@@ -1,6 +1,6 @@
 package com.example.yuxuan.home.model
 
-import com.example.yuxuan.home.interfaces.ApiService
+import com.example.yuxuan.home.contract.ApiService
 import com.example.yuxuan.utils.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,10 +9,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Http {
+    //=========================  =================================
     private var retrofit:Retrofit? = null
     private var okHttpClient: OkHttpClient? = null
     private var apiService:ApiService? = null
 
+    //=========================  =================================
     companion object {
         private var httpInstance: Http? = null
         fun getInstance():Http{
@@ -39,18 +41,18 @@ class Http {
         apiService = retrofit?.create(ApiService::class.java)
     }
 
-    public fun getApiService():ApiService?{
+     fun getApiService():ApiService?{
         return apiService
     }
 
 
+    //=========================  =================================
     private fun getOkHttpClient(): OkHttpClient? {
         okHttpClient = OkHttpClient().newBuilder()
             .addInterceptor(getAuthInterceptor())
             .build()
         return okHttpClient
     }
-
 
     //添加拦截器
     private fun getAuthInterceptor():Interceptor{
