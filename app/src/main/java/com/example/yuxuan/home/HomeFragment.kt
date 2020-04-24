@@ -1,6 +1,7 @@
 package com.example.yuxuan.home
 
 import android.util.Log
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -10,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yuxuan.databinding.HomeFragmentBinding
 import com.example.yuxuan.home.base.BaseFragment
 import com.example.yuxuan.home.bean.ProductBean
+import kotlinx.android.synthetic.main.activity_main.*
 
-class HomeFragment : BaseFragment<HomeFragmentBinding,HomeFragmentVM>(){//},HomeContract.HomeView{
+class HomeFragment : BaseFragment<HomeFragmentBinding,HomeFragmentVM>(){
 
     //=========================  =================================
     override fun getLayoutId() = R.layout.home_fragment
@@ -51,6 +53,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding,HomeFragmentVM>(){//},Home
         //recyclerView的滑动监听
         rvClick()
     }
+
 
     //========================= onclick =================================
 
@@ -102,4 +105,12 @@ class HomeFragment : BaseFragment<HomeFragmentBinding,HomeFragmentVM>(){//},Home
             }
         })
     }
+
+
+//    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+//        super.setUserVisibleHint(isVisibleToUser)
+//        if(isVisibleToUser){
+//            Log.e("eee","homeFragment")
+//        }
+//    }
 }

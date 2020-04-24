@@ -1,12 +1,16 @@
 package com.example.yuxuan.base
 
+import android.util.Log
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.yuxuan.home.HomeFragment
 import com.example.yuxuan.home.base.BaseFragment
 
 class MainFragmentAdapter: FragmentPagerAdapter {
     var mainFragmentFactory:MainFragmentFactory= MainFragmentFactory()
+    var current:Fragment? = null
 
     constructor(fm:FragmentManager):super(fm)
 

@@ -13,13 +13,6 @@ class RecommendItemVM: BaseVM(){
     var Keyword_Three = MutableLiveData<String>()
     var buttonName = MutableLiveData<String>()
 
-//    var amount :String = ""
-//    var productTypeName :String = ""
-//    var Keyword_One :String = ""
-//    var Keyword_Two :String = ""
-//    var Keyword_Three :String = ""
-//    var buttonName :String = ""
-
     open fun onClick(v: View?){
         Toast.makeText(v?.context,"立即申请",Toast.LENGTH_SHORT).show()
     }

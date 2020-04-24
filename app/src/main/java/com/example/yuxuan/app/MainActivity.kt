@@ -1,12 +1,21 @@
 package com.example.yuxuan.app
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.yuxuan.R
 import com.example.yuxuan.base.MainFragmentAdapter
+import kotlinx.android.synthetic.main.activity_main.*
+import com.example.yuxuan.home.HomeFragment
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class MainActivity : FragmentActivity(),RadioGroup.OnCheckedChangeListener,ViewPager.OnPageChangeListener{
     //=========================  =================================
@@ -16,6 +25,7 @@ class MainActivity : FragmentActivity(),RadioGroup.OnCheckedChangeListener,ViewP
     var rb_payback:RadioButton?=null
     var rb_help:RadioButton?=null
     var rb_user:RadioButton?=null
+    var adapter:MainFragmentAdapter? = null
 
     //=========================  =================================
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +40,9 @@ class MainActivity : FragmentActivity(),RadioGroup.OnCheckedChangeListener,ViewP
         rb_user = findViewById(R.id.rb_user)
 
         //设置适配器
-        viewpager?.adapter = MainFragmentAdapter(supportFragmentManager)
+        adapter = MainFragmentAdapter(supportFragmentManager)
         viewpager?.offscreenPageLimit=3
+        viewpager?.adapter  = adapter
 
         //选中首页
         rg?.check(R.id.rb_home)
@@ -39,6 +50,7 @@ class MainActivity : FragmentActivity(),RadioGroup.OnCheckedChangeListener,ViewP
         //设置监听
         rg?.setOnCheckedChangeListener(this)
         viewpager?.addOnPageChangeListener(this)
+
     }
 
     //========================= onclick =================================
@@ -69,4 +81,5 @@ class MainActivity : FragmentActivity(),RadioGroup.OnCheckedChangeListener,ViewP
             3 -> rg?.check(R.id.rb_user)
         }
     }
+
 }
